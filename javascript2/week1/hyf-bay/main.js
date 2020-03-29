@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event)=>{
 
-    // *****************************************************
+    
 // 1. Add products to DOM
 let availableProducts = getAvailableProducts();
 
@@ -41,54 +41,3 @@ function addProducts() {
 
 addProducts();
 
-// 2. Price analytics
-const productsPricesArr = availableProducts.map(product => product.price);
-console.log(productsPricesArr); //array of prices
-
-function messageFromServer(message) {
-    console.log(message);
-}
-
-sendPricesToServer(productsPricesArr, messageFromServer); //console log server responce 
-
-// 3.Filter using countries
-let country = document.querySelector(".country select");
-let getCountryValue = function () {
-    return country.value;
-}
-
-const productSection = document.querySelector(".products");
-const lis = productSection.getElementsByTagName("li");
-const lisArr = Array.from(lis);
-
-country.addEventListener("change", () => {
-    const choosenCountry = getCountryValue();
-    lisArr.forEach((li) => {
-        let cntry = li.lastElementChild.textContent; //!!!
-        if (cntry.includes(choosenCountry)) {
-            li.style.display = "";
-        } else {
-            li.style.display = "none";
-        }
-    });
-});
-
-//4. Filter using search
-const searchField = document.querySelector(".search input");
-let searchFieldValue = function () {
-    let searchValue = searchField.value.toLowerCase();
-    return searchValue;
-}
-
-searchField.addEventListener("keyup", () => {
-        let searchFilter = searchFieldValue();
-        lisArr.forEach((li) => {
-            let nowProduct = li.children[1].textContent.toLowerCase();
-                if (nowProduct.indexOf(searchFilter) != -1) {
-                    li.style.display = "";
-                } else {
-                    li.style.display = "none";
-                }
-            });
-    });
-})

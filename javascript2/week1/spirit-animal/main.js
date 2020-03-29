@@ -1,80 +1,59 @@
 document.addEventListener('DOMContentLoaded', (event)=>{
 
-    //create an array representing a spirit animal
-const spiritAnimals = ["Leviathan", "Pink Panter", "Black Swan", "Cheesy Goat", "Hummingbird", "Alkonost", "Sirin", "Meduza Gorgona", "Pegasus", "Lobster"];
+     //create an for spirit animals
+    const spirit_animals = ["dog", "cat", "lion", "tiger", "cow", "rabbit", "horse" ];
+    
+      let printValue = document.getElementById('print_value');
+      printValue.addEventListener('click', ()=>{
+          let input_value = document.getElementById('input_value').value;
+      
+          spirit_animals.push(input_value);
 
-//get random animal from spiritAnimals array
-const randomSpiritAnimal = function () {
-    const bigDecimal = Math.random();
-    const improvedNum = (bigDecimal * 10);
-    const randomAnimal = Math.floor(improvedNum);
-    return spiritAnimals[randomAnimal];
-}
+          let output = '';
 
-//setting variables
-const firstBtn = document.querySelector("#myBtn")
-let userSpiritAnimal = document.querySelector("#print_animal");
+          for(i = 0; i < spirit_animals.length; i++){
+              output = output + spirit_animals[i]
+          }
 
-//function to assign a spirit animal
-function giveSpiritAnimal() {
-    const userNameValue = document.getElementById("userName").value; //get the name the user wrote in the input field.
-    if (userNameValue != "") {
-        userSpiritAnimal.innerHTML = userNameValue + " – " + randomSpiritAnimal();
-        document.querySelector(".forUserName").appendChild(userSpiritAnimal);
-    } else {
-        alert("Please enter your name");
-    }
-}
-//create functionality where a user can press a button and then get a new spirit animal.
-//(creating 2 buttons for yes and no)
-function showNewBtns() {
-    const userNameValue = document.getElementById("userName").value;
-    const newYesButton = document.querySelector("#yesBtn");
-    const newNoButton = document.querySelector("#noBtn"); //button to get a new spirit animal.
-    if (userNameValue != "") {
-        newYesButton.className = "showMe";
-        newNoButton.className = "showMe";
-        firstBtn.className = "noShow"; //first button disappears
-        newNoButton.addEventListener("click", giveSpiritAnimal);
-        newYesButton.addEventListener("click", function () {
-            alert("It's a match!");
-        });
-    }
-}
+          document.getElementById('pText').innerHTML = output
+        })
 
-firstBtn.addEventListener("click", giveSpiritAnimal);
-firstBtn.addEventListener("click", showNewBtns);
+    
+        const inputTag = document.getElementById('input');
+        const btnTag = document.getElementById('get-spiritual-name');
+        const pTag = document.getElementById('spiritual-name');
+        const selectOption = document.getElementById('select-option');
+        
+        const spiritAnimal = ['The crying butterfly', 'The fullmoon wolf', 'The fearless tiger', 'The forest rabit', 'The yelling monkey', 'The strong deer', 'The talking snake', 'The beautiful cow', 'The dancing bear', 'The happy duck'];
+        function onClick() {
+            const name = getName(inputTag);
+            const animal = getRandomName(spiritAnimal);
+            pTag.textContent = `${name} - ${animal}`;
+        }
+        
+        function onClickHandler() {
+            if (selectOption.value !== 'click-btn')
+                return;
+            if (!getName(inputTag)) {
+                pTag.textContent = 'First enter your name';
+            }
+            else onClick();
+        }
+        btnTag.addEventListener('click', onClickHandler);
+        
+        function onSelectOptionKeyUp() {
+            if (selectOption.value !== 'text-written')
+                return;
+            else onClick();
+        }
+        inputTag.addEventListener('keyup', onSelectOptionKeyUp);
+        
+        function onMouseover() {
+            if (selectOption.value !== 'hover-input')
+                return;
+            else onClick();
+        }
+        inputTag.addEventListener('mouseover', onMouseover);
 
-let noBtn = document.getElementById("noBtn");
-let yesBtn = document.querySelector("#yesBtn");
 
-
-//optional: possibility to select when the spirit animal should be created
-function timingChange() {
-    const selector = document.querySelector("#selectWhenShowAnimal").value;
-    if (selector == "text") {
-        inputFunction();
-    } else if (selector == "input") {
-        keyDownFunction();
-    } else {
-        firstBtn.addEventListener("click", giveSpiritAnimal);
-        noBtn.addEventListener("click", giveSpiritAnimal);
-    }
-}
-
-function inputFunction() {
-    const selector = document.querySelector("#selectWhenShowAnimal").value;
-    if (selector == "text") {
-        noBtn.removeEventListener("click", giveSpiritAnimal);
-        document.querySelector("#userName").onchange = giveSpiritAnimal(); //when text is written
-    }
-}
-
-function keyDownFunction() {
-    const selector = document.querySelector("#selectWhenShowAnimal").value;
-    if (selector == "input") {
-        noBtn.removeEventListener("click", giveSpiritAnimal);
-        document.querySelector("#userName").onchange = giveSpiritAnimal();
-    }
-}
 })

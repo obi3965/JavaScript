@@ -11,24 +11,13 @@
 </head>
 
 <body>
-    <div class="forUserName">
-        <label for="username">Name: </label>
-        <input type="text" name="fullname" id="userName" oninput="inputFunction()" onkeydown="keyDownFunction()"><br>
-        <button id="myBtn">Get my Spirit Animal</button>
-        <p id="print_animal"></p>
-    </div>
-    <div class="newBtns">
-        <button id="yesBtn" class="noShow">Yes I am</button>
-        <button id="noBtn" class="noShow">Give me a New Spirit Animal</button>
-    </div>
-    <div>
-        <p class="smaller">When do you want your Spirit Animal?</p>
-        <select id="selectWhenShowAnimal">
-            <option value="button">When I click the button</option>
-            <option value="text">When text is written</option>
-            <option value="input">When the input changes</option>
-        </select>
-    </div>
+    
+    <form action="#">
+    <input type="text" name="text" id="input_value">
+    <button type="submit" id="print_value">Add</button>
+    </form>
+    <p id="pText"></p>
+    
     <script src="./main.js"></script>
 </body>
 
