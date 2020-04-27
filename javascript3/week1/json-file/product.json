@@ -1,0 +1,69 @@
+{
+      "items": [
+        {
+          "sys": { "id": "1" },
+          "fields": {
+            "title": "bærbar 1",
+            "price": 3.00,
+            "image": { "fields": { "file": { "url": "./images/apple.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "2" },
+          "fields": {
+            "title": "bærbar 2",
+            "price": 4.00,
+            "image": { "fields": { "file": { "url": "./images/applesin.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "3" },
+          "fields": {
+            "title": "bærbar 3",
+            "price": 2.00,
+            "image": { "fields": { "file": { "url": "./images/banana.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "4" },
+          "fields": {
+            "title": "bærbar 4",
+            "price": 25.00,
+            "image": { "fields": { "file": { "url": "./images/grapes.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "5" },
+          "fields": {
+            "title": "bærbar 5",
+            "price":10.00,
+            "image": { "fields": { "file": { "url": "./images/mango.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "6" },
+          "fields": {
+            "title": "bærbar 6",
+            "price": 50.00,
+            "image": { "fields": { "file": { "url": "./images/mixfruit.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "7" },
+          "fields": {
+            "title": "bærbar 7",
+            "price": 4.00,
+            "image": { "fields": { "file": { "url": "./images/peach.jpg" } } }
+          }
+        },
+        {
+          "sys": { "id": "8" },
+          "fields": {
+            "title": "bærbar 8",
+            "price": 2.00,
+            "image": { "fields": { "file": { "url": "./images/kiwi.jpg" } } }
+          }
+        }
+      ]
+    }
+    
