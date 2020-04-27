@@ -55,7 +55,7 @@ form.addEventListener("submit", e => {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      const { main, name, sys, weather } = data;
+      const { main, name, sys, weather, wind } = data;
       const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
         weather[0]["icon"]
       }.svg`;
@@ -69,14 +69,18 @@ form.addEventListener("submit", e => {
         </h2>
         <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup></div>
         <figure>
-          <img class="city-icon" src="${icon}" alt="${
-        weather[0]["description"]
-      }">
+          <img class="city-icon" src="${icon}" alt="${weather[0]["description"]}">
+          
+          <span> Deg: ${wind.deg}</span>
+          <br>
+          <span> Speed: ${wind.speed}</span>
           <figcaption>${weather[0]["description"]}</figcaption>
         </figure>
       `;
       li.innerHTML = markup;
       list.appendChild(li);
+
+      console.log(data)
     })
     .catch(() => {
       msg.textContent = "Please search for a valid city 😩";
